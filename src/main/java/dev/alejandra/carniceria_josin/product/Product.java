@@ -21,6 +21,8 @@ public class Product {
     @Column(nullable = false)
     private int stockKg;
 
+    public Product() {}
+
     public Product(String name, ProductCategory category, double priceKg, int stockKg) {
         this.name = name;
         this.category = category;

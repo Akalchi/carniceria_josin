@@ -1,10 +1,17 @@
 package dev.alejandra.carniceria_josin.admin;
 
+import java.util.Collection;
+import java.util.Collections;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "administrador")
-public class Admin {
+public class Admin implements UserDetails {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -70,4 +77,10 @@ public class Admin {
                 ", password='[PROTECTED]'" +
                 '}';
     }
+
+      @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+    }
+
 }
