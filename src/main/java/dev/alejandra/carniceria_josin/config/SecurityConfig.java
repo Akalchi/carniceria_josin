@@ -17,7 +17,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable()) 
                 .authorizeHttpRequests((auth) -> auth
-                                .requestMatchers("/public/**").permitAll() 
+                                .requestMatchers("/api/products/**").permitAll() 
                                 .anyRequest().hasRole("ADMIN")
                 )
                 .httpBasic(withDefaults()); 
