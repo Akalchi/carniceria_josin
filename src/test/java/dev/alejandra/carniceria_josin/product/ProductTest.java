@@ -24,7 +24,7 @@ public class ProductTest {
         assertEquals(category, product.getCategory());
         assertEquals(priceKg, product.getPriceKg());
         assertEquals(stockKg, product.getStockKg());
-        assertNull(product.getId()); // ID should be null until saved in the database
+        assertNull(product.getId()); 
     }
 
     @Test
@@ -69,7 +69,7 @@ public class ProductTest {
     void testPriceCalculation() {
 
         Product product = new Product("Jamón Serrano", ProductCategory.EMBUTIDO, 24.5, 15);
-        double quantity = 0.5; // 500 gramos
+        double quantity = 0.5; 
 
         double totalPrice = product.getPriceKg() * quantity;
 
